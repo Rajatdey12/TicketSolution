@@ -1,0 +1,67 @@
+URL Shortener
+-----------------
+
+Business Requirement - Overview
+To build a URL shortener application using Spring MVC and Redis which will take the URL as input and returns a shortened URL.
+
+Front-end Component: The index page should contain an input text box to enter the URL to be shortened. Once the user clicks the `SHORTEN` button, the short URL should be displayed in the page.
+The candidate is supposed to build following features:
+API Component ( /shorten ): Implement a POST endpoint to take the URL from the request body and return the short URL.
+API Component ( /:hash ): Implement a GET endpoint to take the URL hash from the request parameters and redirect to the original URL.
+
+Technical Specifications
+2.1. Software and application details
+Tools/Packages
+Redis Server v2.3.0(6379)
+
+
+The packages are pre-installed in the environment. In case, if you want to install any other package then use either apt/npm.
+OS Version
+Ubuntu 16.04 LTS
+4 GB RAM
+Application port
+Port 8000 is mapped port 80
+Application server runs on port 8000 in the virtual machine. This port is forwarded to port 80 publicly -- which is accessible via the live preview of the IDE (Integrated Development Environment).
+
+
+2.2. UI (User Interface) - Design wireframes
+The UI wireframes with the required layouts are as follows: 
+NOTE: The candidate will not be evaluated based on the UI design (layout, color, formatting, and so on). The candidate is free to have a basic UI with all the required UI components (input fields, buttons, labels, and so on ). 
+Following screenshot represents the index page view:
+
+
+
+2.3. Getting to know the IDE
+Please follow the following steps to initialize the application and access it from the environment:
+Use the Build button to compile and deploy the application.
+Click on the Live preview to view the application.
+The button with name Build in the IDE builds your project and creates a ".war" file and deploys it to tomcat installed in /tomcat/webapps , which is then accessible when Live Preview button is clicked.
+A demo project is already present which will be compiled and deployed by clicking on the Build button. Then click on the Reload Workspace icon on the project navigation pane.
+You will see a folder named target gets generated. Now click on the Live Preview button.
+					
+
+
+
+Project deliverables
+
+The user is required to build the following features:
+API Component ( /shorten ): A POST request to this endpoint with the long URL, should return shortened URL.
+Take the URL from the request body
+Generate the hash and store in Redis/MySQL
+In case of error: Return 500
+In case of success: Return 200 status code, status as 'success', hash and the redirect URL
+
+API Component ( /:hash ): Implement a GET endpoint to take the URL hash from the request parameters and redirect to the original URL.
+Take the URL hash from request parameters.
+In case of failed redirect, return 404 with error message 'Unable to redirect'
+In case of successful redirect, status code should be 307.
+
+Data storage: 
+Use Redis to store the URL hash (generated above) with the corresponding long URL    
+Generate hash and store it in redis.
+key:value is hash:url
+
+
+Important Note:
+The project’s name in pom.xml is specified as “ROOT”
+DO NOT CHANGE the project’s name else your project will not deploy and the test cases would fail.

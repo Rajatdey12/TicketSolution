@@ -4,6 +4,7 @@ import com.upgrad.restApi.swagger.dto.AuthorDto;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class AuthorService {
@@ -31,4 +32,15 @@ public class AuthorService {
     public ArrayList<AuthorDto> getAuthors() {
         return AUTHORS;
     }
+
+    public AuthorDto addAuthor(AuthorDto author) {
+        AUTHORS.add(author);
+        return author;
+    }
+
+    //IMPLEMENT PUT METHOD FOR UPDATE
+
+    //DELETE AUTHOR BY AUTHOR ID
+
+    //GET AUTHOR BY AUTHOR ID
 }
